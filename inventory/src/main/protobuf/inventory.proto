@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sample.sharding.kafka";
+option java_outer_classname = "UserProto";
+
+service InventoryService {
+    rpc Add (AddInventoryRequest) returns (AddInventoryResponse) {}
+    rpc Get (GetInventoryRequest) returns (GetInventoryResponse) {}
+    rpc Create (AddInventoryRequest) returns (AddInventoryResponse) {}
+}
+
+message GetInventoryRequest {
+    string itemId = 1;
+}
+
+message GetInventoryResponse {
+    string itemId = 1;
+    int32 quantity = 2;
+}
+message AddInventoryRequest {
+    string itemId = 1;
+    int32 quantity = 2;
+}
+
+message AddInventoryResponse {
+    string itemId = 1;
+    string message = 2;
+}
